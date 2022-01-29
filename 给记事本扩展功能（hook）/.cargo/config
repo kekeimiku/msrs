@@ -1,0 +1,5 @@
+[target.i686-pc-windows-msvc]
+rustflags = [
+  "-C", "link-arg=/DEBUG:NONE",
+  "-C", "link-arg=-Wl,--build-id=none"
+]

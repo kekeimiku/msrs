@@ -1,0 +1,86 @@
+->DOS Header
+   e_magic:     0x5A4D
+   e_cblp:      0x0090
+   e_cp:        0x0003
+   e_crlc:      0x0000
+   e_cparhdr:   0x0004
+   e_minalloc:  0x0000
+   e_maxalloc:  0xFFFF
+   e_ss:        0x0000
+   e_sp:        0x00B8
+   e_csum:      0x0000
+   e_ip:        0x0000
+   e_cs:        0x0000
+   e_lfarlc:    0x0040
+   e_ovno:      0x0000
+   e_res:       0x0000000000000000
+   e_oemid:     0x0000
+   e_oeminfo:   0x0000
+   e_res2:      0x0000000000000000000000000000000000000000
+   e_lfanew:    0x000000E0
+
+->File Header
+   Machine:               0x014C  (I386)
+   NumberOfSections:      0x0003
+   TimeDateStamp:         0x48025287  (GMT: Sun Apr 13 18:35:51 2008)
+   PointerToSymbolTable:  0x00000000
+   NumberOfSymbols:       0x00000000
+   SizeOfOptionalHeader:  0x00E0
+   Characteristics:       0x010F
+                          (RELOCS_STRIPPED)
+                          (EXECUTABLE_IMAGE)
+                          (LINE_NUMS_STRIPPED)
+                          (LOCAL_SYMS_STRIPPED)
+                          (32BIT_MACHINE)
+
+->Optional Header
+   Magic:                        0x010B  (HDR32_MAGIC)
+   MajorLinkerVersion:           0x07
+   MinorLinkerVersion:           0x0A  -> 7.10
+   SizeOfCode:                   0x00007800
+   SizeOfInitializedData:        0x00008800
+   SizeOfUninitializedData:      0x00000000
+   AddressOfEntryPoint:          0x0000739D
+   BaseOfCode:                   0x00001000
+   BaseOfData:                   0x00009000
+   ImageBase:                    0x01000000
+   SectionAlignment:             0x00001000
+   FileAlignment:                0x00000200
+   MajorOperatingSystemVersion:  0x0005
+   MinorOperatingSystemVersion:  0x0001  -> 5.01
+   MajorImageVersion:            0x0005
+   MinorImageVersion:            0x0001  -> 5.01
+   MajorSubsystemVersion:        0x0004
+   MinorSubsystemVersion:        0x0000  -> 4.00
+   Win32VersionValue:            0x00000000
+   SizeOfImage:                  0x00012F20
+   SizeOfHeaders:                0x00000400
+   CheckSum:                     0x00018ADA
+   Subsystem:                    0x0002  (WINDOWS_GUI)
+   DllCharacteristics:           0x8000  (TERMINAL_SERVER_AWARE)
+   SizeOfStackReserve:           0x00040000
+   SizeOfStackCommit:            0x00011000
+   SizeOfHeapReserve:            0x00100000
+   SizeOfHeapCommit:             0x00001000
+   LoaderFlags:                  0x00000000
+   NumberOfRvaAndSizes:          0x00000010
+
+   DataDirectory (16)            RVA        Size
+   -------------                 ---------- ----------
+   ExportTable                   0x00000000 0x00000000
+   ImportTable                   0x00007604 0x000000C8  (".text")
+   Resource                      0x0000B000 0x00007F20  (".rsrc")
+   Exception                     0x00000000 0x00000000
+   Security                      0x00000000 0x00000000
+   Relocation                    0x00000000 0x00000000
+   Debug                         0x00001350 0x0000001C  (".text")
+   Copyright                     0x00000000 0x00000000
+   GlobalPtr                     0x00000000 0x00000000
+   TLSTable                      0x00000000 0x00000000
+   LoadConfig                    0x000018A8 0x00000040  (".text")
+   BoundImport                   0x00000250 0x000000D0
+   IAT                           0x00001000 0x00000348  (".text")
+   DelayImport                   0x00000000 0x00000000
+   COM                           0x00000000 0x00000000
+   Reserved                      0x00000000 0x00000000
+

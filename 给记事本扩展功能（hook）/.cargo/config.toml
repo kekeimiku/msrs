@@ -1,0 +1,9 @@
+[target.i686-pc-windows-msvc]
+rustflags = [
+  "-C", "link-arg=/DEBUG:NONE",
+  "-C", "link-arg=-Wl,--build-id=none"
+]
+
+[target.x86_64-pc-windows-gnu]
+linker = "D:/msys64/mingw64/bin/gcc.exe"
+ar = "D:/msys64/mingw64/bin/ar.exe"

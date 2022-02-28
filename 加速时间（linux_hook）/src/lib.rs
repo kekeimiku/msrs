@@ -42,7 +42,7 @@ pub unsafe extern "C" fn clock_gettime(clk_id: i32, tp: *mut timespec) -> i32 {
     let ok = __clock_gettime(clk_id, &mut t);
 
     *tp = timespec {
-        tv_sec: t.tv_sec - 24 * 60 * 60,
+        tv_sec: t.tv_sec + 24 * 60 * 60,
         tv_nsec: t.tv_nsec,
     };
 
@@ -59,7 +59,7 @@ pub unsafe extern "C" fn gettimeofday(tp: *mut timeval, tz: *mut timezone) -> i3
     let ok = __gettimeofday(&mut t, tz);
 
     *tp = timeval {
-        tv_sec: t.tv_sec - 24 * 60 * 60,
+        tv_sec: t.tv_sec + 24 * 60 * 60,
         tv_usec: t.tv_usec,
     };
 

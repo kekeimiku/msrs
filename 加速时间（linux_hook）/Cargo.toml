@@ -9,7 +9,6 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-#libc = "0.2" 13696
 
 [profile.release]
 lto = true

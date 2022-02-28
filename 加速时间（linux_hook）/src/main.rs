@@ -16,5 +16,4 @@ fn main() {
             .as_millis();
         println!("start:{} end:{} end-start:{}", start, end, end - start);
     }
-
 }

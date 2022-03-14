@@ -21,12 +21,14 @@ extern "C" {
 pub enum timezone {}
 
 #[repr(C)]
+#[derive(Default)]
 pub struct timespec {
     pub tv_sec: i64,
     pub tv_nsec: i64,
 }
 
 #[repr(C)]
+#[derive(Default)]
 pub struct timeval {
     pub tv_sec: i64,
     pub tv_usec: i64,
@@ -35,32 +37,30 @@ pub struct timeval {
 #[no_mangle]
 pub unsafe extern "C" fn clock_gettime(clk_id: i32, tp: *mut timespec) -> i32 {
     let mut t = timespec {
-        tv_sec: 0,
-        tv_nsec: 0,
+        ..Default::default()
     };
 
     let ok = __clock_gettime(clk_id, &mut t);
 
     *tp = timespec {
-        tv_sec: t.tv_sec + 24 * 60 * 60,
-        tv_nsec: t.tv_nsec,
+        tv_sec: t.tv_sec * 5,
+        tv_nsec: t.tv_nsec * 5,
     };
 
     ok
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn gettimeofday(tp: *mut timeval, tz: *mut timezone) -> i32 {
+pub unsafe extern "C" fn gettimeofday(tv: *mut timeval, tz: *mut timezone) -> i32 {
     let mut t = timeval {
-        tv_sec: 0,
-        tv_usec: 0,
+        ..Default::default()
     };
 
     let ok = __gettimeofday(&mut t, tz);
 
-    *tp = timeval {
-        tv_sec: t.tv_sec + 24 * 60 * 60,
-        tv_usec: t.tv_usec,
+    *tv = timeval {
+        tv_sec: t.tv_sec * 5,
+        tv_usec: t.tv_usec * 5,
     };
 
     ok

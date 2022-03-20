@@ -1,3 +1,4 @@
+// ======= 407字节 ============
 #![no_std]
 #![no_main]
 
@@ -26,3 +27,24 @@ fn _start() {
         );
     };
 }
+
+
+// ======= 552字节 ============
+// #![no_std]
+// #![no_main]
+
+// #[panic_handler]
+// fn panic(_info: &core::panic::panicinfo) -> ! {
+//     loop {}
+// }
+
+// #[link(name = "c")]
+// extern "c" {
+//     fn write(fd: i32, buf: *const i8, count: usize) -> isize;
+// }
+
+// #[no_mangle]
+// fn main() -> isize {
+//     unsafe { write(1, b"hello, world!\n" as *const u8 as *const i8, 14) };
+//     0
+// }

@@ -1,4 +1,4 @@
-### asm版：407字节
+### asm版：327字节
 ```rust
 #![no_std]
 #![no_main]
@@ -33,10 +33,10 @@ fn _start() {
 ```shell
 cargo build --release --target x86_64-unknown-linux-gnu
 [target.x86_64-unknown-linux-gnu]
-rustflags = ["-C", "link-arg=-fuse-ld=lld", "-C", "link-arg=-nostdlib", "-C", "link-arg=-static"]
+rustflags = ["-C", "link-arg=-fuse-ld=lld", "-C", "link-arg=-nostdlib", "-C", "link-arg=-static", "-C", "link-arg=-Wl,--build-id=none"]
 llvm-strip --strip-sections hello
 ll rust-helloworld
-407 byte     rust-helloworld
+327 byte     rust-helloworld
 ```
 
 ### libc版：552字节

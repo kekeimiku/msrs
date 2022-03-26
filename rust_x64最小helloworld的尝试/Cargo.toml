@@ -15,3 +15,4 @@ panic = "abort"
 strip = true
 
 [profile.dev]
+panic = "abort"

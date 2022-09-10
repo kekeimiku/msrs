@@ -74,12 +74,11 @@ ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsysca
 
 也就是说，如果我们读取这个地址的五个字节（`"hello"这个字符串的长度`）,就可以得到"hello"，我们来试一下：
 
-```rust
-    let mut file = File::open(&Path::new(&"/proc/7951/mem")).unwrap();
-    file.seek(SeekFrom::Start(0x7fb5a2956000)).unwrap();
+```rust    
+    let file = File::open(&Path::new(&format!("/proc/{}/mem", pid)))?;
     let mut buffer = vec![0; 5];
-    file.read(&mut buffer).unwrap();
-    println!("{}", std::str::from_utf8(&buffer).unwrap());
+    file.read_at(&mut buffer, 0x7fb5a2956000)?;
+    println!("{}", std::str::from_utf8(&buffer)?);
 ```
 
 运行结果
@@ -88,13 +87,6 @@ ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsysca
 hello
 ```
 
-当然，我们也可以更改它，但是由于这段内存权限为 `r--p` 只读，所以我们需要将它更改为 `rw-p`：
-
-```rust
-#[link(name = "c")]
-extern "C" {
-    fn __mprotect(addr: *mut std::ffi::c_void, len: usize, prot: i32) -> i32;
-}
-```
+当然，我们也可以更改它
 
 ## todo...
